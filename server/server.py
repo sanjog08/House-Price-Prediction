@@ -1,7 +1,13 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import util
 
 app = Flask(__name__)
+
+
+@app.route('/', methods=['GET'])
+def client_app():
+    # temp = ['client/app.html', 'client/app.css', 'client/app.js']
+    return render_template('app.html')
 
 @app.route('/get_location_names', methods=['GET'])
 def get_location_names():
