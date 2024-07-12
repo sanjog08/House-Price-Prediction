@@ -6,7 +6,6 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def client_app():
-    # temp = ['client/app.html', 'client/app.css', 'client/app.js']
     return render_template('app.html')
 
 @app.route('/get_location_names', methods=['GET'])
@@ -31,8 +30,3 @@ def predict_home_price():
     response.headers.add('Access-Control-Allow-Origin', '*')
 
     return response
-
-if __name__ == "__main__":
-    print("Starting Python Flask Server For Home Price Prediction...")
-    util.load_saved_artifacts()
-    app.run()
