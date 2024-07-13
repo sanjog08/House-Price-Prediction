@@ -29,8 +29,8 @@ def load_saved_artifacts():
     global __locations
 
     current_dir = os.path.dirname(__file__)
-    # file_path = os.path.join(current_dir, "artifacts", "columns.json")
-    file_path = r".\artifacts\columns.json"
+    file_path = os.path.join(current_dir, "artifacts", "columns.json")
+    # file_path = r".\artifacts\columns.json"
     with open(file_path, "r") as f:
         __data_columns = json.load(f)['data_columns']
         __locations = __data_columns[3:]  # first 3 columns are sqft, bath, bhk
@@ -38,7 +38,7 @@ def load_saved_artifacts():
     global __model
     if __model is None:
         file_path = os.path.join(current_dir, "artifacts", "banglore_home_prices_model.pickle")
-        file_path = r".\artifacts\banglore_home_prices_model.pickle"
+        # file_path = r".\artifacts\banglore_home_prices_model.pickle"
         with open (file_path, "rb") as f:
             __model = pickle.load(f)
     print("loading saved artifacts...done")
